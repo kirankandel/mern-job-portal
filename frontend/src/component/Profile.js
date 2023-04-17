@@ -21,6 +21,8 @@ import apiList from "../lib/apiList";
 const useStyles = makeStyles((theme) => ({
   body: {
     height: "inherit",
+    padding: "80px 80px",
+
   },
   popupDialog: {
     height: "100%",

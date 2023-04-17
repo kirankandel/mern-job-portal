@@ -23,11 +23,11 @@ import { SetPopupContext } from "../App";
 
 import apiList from "../lib/apiList";
 import isAuth from "../lib/isAuth";
-import jobRoles from './roles.json'
+import jobRoles from "./roles.json";
 
 const useStyles = makeStyles((theme) => ({
   body: {
-    padding: "30px",
+    padding: "80px 80px",
   },
   inputBox: {
     width: "300px",
@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MultifieldInput = (props) => {
-  
   const classes = useStyles();
   const { education, setEducation } = props;
 
@@ -129,12 +128,11 @@ const MultifieldInput = (props) => {
 };
 
 const Login = (props) => {
-
   const classes = useStyles();
 
   const setPopup = useContext(SetPopupContext);
 
-  const [workexperience, setWorkExperience] =useState("");
+  const [workexperience, setWorkExperience] = useState("");
 
   const [loggedin, setLoggedin] = useState(isAuth());
 
@@ -188,23 +186,21 @@ const Login = (props) => {
       required: true,
       error: false,
       message: "",
-    }
+    },
   });
 
-  const handleWorkExp = (value) =>{
+  const handleWorkExp = (value) => {
     setWorkExperience(value);
-    console.log(value," value")
-    if(value === 'experienced'){
-      setExp(true)
-    }else{
-      setExp(false)
+    console.log(value, " value");
+    if (value === "experienced") {
+      setExp(true);
+    } else {
+      setExp(false);
     }
-  }
+  };
 
   const handleInput = (key, value) => {
-    
-    setSignupDetails({...signupDetails, [key]: value,});
-
+    setSignupDetails({ ...signupDetails, [key]: value });
   };
 
   const handleInputError = (key, status, message) => {
@@ -248,7 +244,11 @@ const Login = (props) => {
         }),
     };
 
+    console.log("update", updatedDetails);
+
     setSignupDetails(updatedDetails);
+
+    console.log("signupDetails", signupDetails);
 
     const verified = !Object.keys(tmpErrorHandler).some((obj) => {
       return tmpErrorHandler[obj].error;
@@ -315,14 +315,12 @@ const Login = (props) => {
         contactNumber: "",
       };
     }
-
+    console.log("update1",updatedDetails);
     setSignupDetails(updatedDetails);
-
+    console.log("update2",updatedDetails);
     const verified = !Object.keys(tmpErrorHandler).some((obj) => {
       return tmpErrorHandler[obj].error;
     });
-
-    console.log(updatedDetails);
 
     if (verified) {
       axios
@@ -359,7 +357,7 @@ const Login = (props) => {
   return loggedin ? (
     <Redirect to="/" />
   ) : (
-    <Paper elevation={3} className={classes.body}>
+    <Paper elevation={5} className={classes.body}>
       <Grid container direction="column" spacing={4} alignItems="center">
         <Grid item>
           <Typography variant="h3" component="h2">
@@ -430,137 +428,141 @@ const Login = (props) => {
         </Grid>
         <Grid item>
           <PhoneInput
-            country={"in"}
+            country={"np"}
             value={phone}
             onChange={(phone) => setPhone(phone)}
           />
         </Grid>
         {signupDetails.role === "applicant" ? (
           <>
-          <Grid item>
-          <TextField
-            select
-            label="Job Type"
-            variant="outlined"
-            className={classes.inputBox}
-            value={signupDetails.type}
-            onChange={(event) => {
-              handleInput("type", event.target.value);
-            }}
-          >
-            {jobRoles.jobs.map((item,index)=>{
-              return (
-                <MenuItem key={index} value={item}>{item}</MenuItem>
-              )
-            })}
-          </TextField>
-          </Grid>
-          <Grid item>
-            <TextField
-              select
-              label="Gender"
-              variant="outlined"
-              className={classes.inputBox}
-              value={signupDetails.gender}
-              onChange={(event) => {
-                handleInput("gender", event.target.value);
-              }}
-            >
-              <MenuItem value="male">Male</MenuItem>
-              <MenuItem value="female">Female</MenuItem>
-            </TextField>
-          </Grid>
-          <Grid item>
-            <TextField
-              select
-              label="Highest Qualification"
-              variant="outlined"
-              className={classes.inputBox}
-              value={signupDetails.hq}
-              onChange={(event) => {
-                handleInput("hq", event.target.value);
-              }}
-            >
-              <MenuItem value="b10">Below 10th</MenuItem>
-              <MenuItem value="10">10th Pass</MenuItem>
-              <MenuItem value="12">12th Pass</MenuItem>
-              <MenuItem value="g">Graduate</MenuItem>
-              <MenuItem value="pg">Post Graduate</MenuItem>
-              
-            </TextField>
-          </Grid>
-          <Grid item>
-            <TextField
-              select
-              label="Work Experience"
-              variant="outlined"
-              className={classes.inputBox}
-              value={workexperience}
-              onChange={(event) => {handleWorkExp(event.target.value)}}
-            >
-              <MenuItem value="fresher">Fresher</MenuItem>
-              <MenuItem value="experienced">Experienced</MenuItem>
-            </TextField>
-          </Grid>
-          {exp === true && 
-          <>
-          <Grid item>
-            <TextField
-              label="Salary"
-              value={signupDetails.salary}
-              onChange={(event) => handleInput("salary", event.target.value)}
-              className={classes.inputBox}
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              label="Years (5)"
-              value={signupDetails.years}
-              onChange={(event) => handleInput("years", event.target.value)}
-              className={classes.inputBox}
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              label="Months (10)"
-              value={signupDetails.months}
-              onChange={(event) => handleInput("months", event.target.value)}
-              className={classes.inputBox}
-              variant="outlined"
-            />
-          </Grid>
-          </>
-          }
-          <Grid item>
-            <TextField
-              select
-              label="City"
-              variant="outlined"
-              className={classes.inputBox}
-              value={signupDetails.city}
-              onChange={(event) => {
-                handleInput("city", event.target.value);
-              }}
-            >
-              <MenuItem value="delhi">Delhi</MenuItem>
-              <MenuItem value="gurgaon">Gurgaon</MenuItem>
-              <MenuItem value="mumbai">Mumbai</MenuItem>
-              <MenuItem value="hyderabad">Hyderabad</MenuItem>
-              <MenuItem value="chennai">Chennai</MenuItem>
-              <MenuItem value="banglore">Banglore</MenuItem>
-              <MenuItem value="noida">noida</MenuItem>
-              <MenuItem value="pune">Pune</MenuItem>
-              <MenuItem value="faridabad">Faridabad</MenuItem>
-              <MenuItem value="ghaziabad">Ghaziabad</MenuItem>
-              <MenuItem value="indore">Indore</MenuItem>
-              <MenuItem value="jaipur">Jaipur</MenuItem>
-              <MenuItem value="chadigarh">Chadigarh</MenuItem>
-              <MenuItem value="mohali">Mohali</MenuItem>
-              <MenuItem value="lucknow">Lucknow</MenuItem>
-            </TextField>
-          </Grid>
+            <Grid item>
+              <TextField
+                select
+                label="Job Type"
+                variant="outlined"
+                className={classes.inputBox}
+                value={signupDetails.type}
+                onChange={(event) => {
+                  handleInput("type", event.target.value);
+                }}
+              >
+                {jobRoles.jobs.map((item, index) => {
+                  return (
+                    <MenuItem key={index} value={item}>
+                      {item}
+                    </MenuItem>
+                  );
+                })}
+              </TextField>
+            </Grid>
+            <Grid item>
+              <TextField
+                select
+                label="Gender"
+                variant="outlined"
+                className={classes.inputBox}
+                value={signupDetails.gender}
+                onChange={(event) => {
+                  handleInput("gender", event.target.value);
+                }}
+              >
+                <MenuItem value="male">Male</MenuItem>
+                <MenuItem value="female">Female</MenuItem>
+              </TextField>
+            </Grid>
+            <Grid item>
+              <TextField
+                select
+                label="Highest Qualification"
+                variant="outlined"
+                className={classes.inputBox}
+                value={signupDetails.hq}
+                onChange={(event) => {
+                  handleInput("hq", event.target.value);
+                }}
+              >
+                <MenuItem value="b10">Below 10th</MenuItem>
+                <MenuItem value="10">10th Pass</MenuItem>
+                <MenuItem value="12">12th Pass</MenuItem>
+                <MenuItem value="g">Graduate</MenuItem>
+                <MenuItem value="pg">Post Graduate</MenuItem>
+              </TextField>
+            </Grid>
+            <Grid item>
+              <TextField
+                select
+                label="Work Experience"
+                variant="outlined"
+                className={classes.inputBox}
+                value={workexperience}
+                onChange={(event) => {
+                  handleWorkExp(event.target.value);
+                }}
+              >
+                <MenuItem value="fresher">Fresher</MenuItem>
+                <MenuItem value="experienced">Experienced</MenuItem>
+              </TextField>
+            </Grid>
+            {exp === true && (
+              <>
+                <Grid item>
+                  <TextField
+                    label="Salary"
+                    value={signupDetails.salary}
+                    onChange={(event) =>
+                      handleInput("salary", event.target.value)
+                    }
+                    className={classes.inputBox}
+                    variant="outlined"
+                  />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    label="Years (5)"
+                    value={signupDetails.years}
+                    onChange={(event) =>
+                      handleInput("years", event.target.value)
+                    }
+                    className={classes.inputBox}
+                    variant="outlined"
+                  />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    label="Months (10)"
+                    value={signupDetails.months}
+                    onChange={(event) =>
+                      handleInput("months", event.target.value)
+                    }
+                    className={classes.inputBox}
+                    variant="outlined"
+                  />
+                </Grid>
+              </>
+            )}
+            <Grid item>
+              <TextField
+                select
+                label="City"
+                variant="outlined"
+                className={classes.inputBox}
+                value={signupDetails.city}
+                onChange={(event) => {
+                  handleInput("city", event.target.value);
+                }}
+              >
+                <MenuItem value="kathmandu">Kathmandu</MenuItem>
+                <MenuItem value="pokhara">Pokhara</MenuItem>
+                <MenuItem value="biratnagar">Biratnagar</MenuItem>
+                <MenuItem value="bharatpur">Bharatpur</MenuItem>
+                <MenuItem value="birgunj">Birgunj</MenuItem>
+                <MenuItem value="janakpur">Janakpur</MenuItem>
+                <MenuItem value="hetauda">Hetauda</MenuItem>
+                <MenuItem value="dharan">Dharan</MenuItem>
+                <MenuItem value="butwal">Butwal</MenuItem>
+                <MenuItem value="nepalgunj">Nepalgunj</MenuItem>
+              </TextField>
+            </Grid>
             <MultifieldInput
               education={education}
               setEducation={setEducation}

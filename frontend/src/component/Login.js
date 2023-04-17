@@ -19,7 +19,8 @@ import isAuth from "../lib/isAuth";
 
 const useStyles = makeStyles((theme) => ({
   body: {
-    padding: "60px 60px",
+    padding: "80px 80px",
+    marginTop: "50px",
   },
   inputBox: {
     width: "300px",
@@ -106,7 +107,6 @@ const Login = (props) => {
   return loggedin ? (
     <Redirect to="/" />
   ) : (
-    <Paper elevation={3} className={classes.body}>
       <Grid container direction="column" spacing={4} alignItems="center">
         <Grid item>
           <Typography variant="h3" component="h2">
@@ -142,7 +142,6 @@ const Login = (props) => {
           </Button>
         </Grid>
       </Grid>
-    </Paper>
   );
 };
 

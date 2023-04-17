@@ -24,6 +24,7 @@ router.post("/signup", (req, res) => {
         user.role == "recruiter"
           ? new Recruiter({
               userId: user._id,
+              role: data.role,
               name: data.name,
               type: data.type,
               contactNumber: data.contactNumber,
@@ -33,6 +34,7 @@ router.post("/signup", (req, res) => {
               userId: user._id,
               name: data.name,
               type: data.type,
+              role: data.role,
               education: data.education,
               skills: data.skills,
               rating: data.rating,

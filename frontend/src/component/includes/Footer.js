@@ -8,7 +8,14 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient(45deg, #e2f1ff, #fff7f5)",
     padding: "50px 0",
   },
+  poppinsFont:{
+    fontFamily:"Poppins"
+  },
+  interFont: {
+    fontFamily:"Inter"
+  },
   container: {
+    fontFamily:"Inter",
     maxWidth: "1600px",
     margin: "auto",
     display: "flex",
@@ -35,19 +42,18 @@ const Footer = () => {
     <div className={classes.footer}>
       <Grid className={classes.container} container spacing={4}>
         <Grid item xs={12} md={3}>
-          <Typography variant="h4" align={"left"}>
-            Tryonlinefree
+          <Typography className={classes.poppinsFont} variant="h4" align={"left"}>
+            JobFinder.
           </Typography>
-          <Typography variant="subtitle1" align="left">
-            Tryonlinefree.com is an Indian employment website operating in India. It was founded in June 2018. Tryonlinefree.com is the largest employment website
-            in India.
+          <Typography variant="subtitle1" className={classes.interFont} align="left">
+            JobFinder is a job search platform located in Nepal that helps job seekers find suitable employment opportunities across different industries and job categories.
           </Typography>
         </Grid>
         <Grid item xs={12} md={3}>
-          <Typography variant="h5" align={"center"}>
+          <Typography variant="h5" className= {classes.poppinsFont} align={"center"}>
             Company
           </Typography>
-          <div className={classes.links}>
+          <div className={[classes.links, classes.interFont].join(' ')}>
             <Link className={classes.link} to="/">About Us</Link>
             <Link className={classes.link} to="/">Contact Us</Link>
             <Link className={classes.link} to="/">Cookie Policy</Link>
@@ -56,22 +62,22 @@ const Footer = () => {
           </div>
         </Grid>
         <Grid item xs={12} md={3}>
-          <Typography variant="h5" align={"center"}>
+          <Typography variant="h5" className= {classes.poppinsFont} align={"center"}>
             Browse Jobs
           </Typography>
-          <div className={classes.links}>
+          <div className={[classes.links, classes.interFont].join(' ')}>
           <Link className={classes.link} to="/">Delivery Jobs</Link>
-          <Link className={classes.link} to="/">Driver Jobs</Link>
-          <Link className={classes.link} to="/">Warehouse Jobs</Link>
-          <Link className={classes.link} to="/">Manufacturing Jobs</Link>
-          <Link className={classes.link} to="/">Housekeeping Jobs</Link>
+          <Link className={classes.link} to="/">Engineering Jobs</Link>
+          <Link className={classes.link} to="/">Designing Jobs</Link>
+          <Link className={classes.link} to="/">Management Jobs</Link>
+          <Link className={classes.link} to="/">Human Resources Jobs</Link>
           </div>
         </Grid>
         <Grid item xs={12} md={3}>
-          <Typography variant="h5" align={"center"}>
+          <Typography variant="h5" className= {classes.poppinsFont} align={"center"}>
             Follow US
           </Typography>
-          <div className={classes.links}>
+          <div className={[classes.links, classes.interFont].join(' ')}>
           <Link className={classes.link} to="/">Facebook</Link>
           <Link className={classes.link} to="/">Twitter</Link>
           <Link className={classes.link} to="/">Linkedin</Link>

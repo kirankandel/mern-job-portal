@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
+    fontFamily: "Poppins",
     flexGrow: 1,
     cursor: 'pointer'
   },
@@ -35,7 +36,7 @@ const Navbar = (props) => {
     <AppBar position="fixed">
       <Toolbar>
         <Typography variant="h6" className={classes.title} onClick={() => handleClick("/")}>
-          Job Portal
+          JobFinder.
         </Typography>
         {isAuth() ? (
           userType() === "recruiter" ? (

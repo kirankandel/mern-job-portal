@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     boxSizing: "border-box",
     width: "100%",
   },
+  gripSpace:{
+    margin: "80px 0 0 0"
+  }
 }));
 
 export const SetPopupContext = createContext();
@@ -41,11 +44,11 @@ function App() {
   return (
     <BrowserRouter>
       <SetPopupContext.Provider value={setPopup}>
-        <Grid container direction="column">
+        <Grid container direction="column" >
           <Grid item xs>
             <Navbar />
           </Grid>
-          <Grid item className={classes.body}>
+          <Grid item className={classes.gripSpace}>
             <Switch>
               <Route exact path="/">
                 <Welcome />
