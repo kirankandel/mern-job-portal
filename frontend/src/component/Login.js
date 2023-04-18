@@ -77,8 +77,9 @@ const Login = (props) => {
       axios
         .post(apiList.login, loginDetails)
         .then((response) => {
+          console.log(response.data);
           localStorage.setItem("token", response.data.token);
-          localStorage.setItem("type", response.data.type);
+          localStorage.setItem("role", response.data.role);
           setLoggedin(isAuth());
           setPopup({
             open: true,

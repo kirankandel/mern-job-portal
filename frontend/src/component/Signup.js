@@ -315,9 +315,7 @@ const Login = (props) => {
         contactNumber: "",
       };
     }
-    console.log("update1",updatedDetails);
     setSignupDetails(updatedDetails);
-    console.log("update2",updatedDetails);
     const verified = !Object.keys(tmpErrorHandler).some((obj) => {
       return tmpErrorHandler[obj].error;
     });

@@ -13,6 +13,10 @@ let schema = new mongoose.Schema(
     type: {
       type: String,
     },
+    role: {
+      type: String,
+      required: true,
+    },
     contactNumber: {
       type: String,
       validate: {
