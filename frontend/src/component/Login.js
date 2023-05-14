@@ -110,7 +110,7 @@ const Login = (props) => {
   ) : (
       <Grid container direction="column" spacing={4} alignItems="center">
         <Grid item>
-          <Typography variant="h3" component="h2">
+          <Typography variant="h4" component="h2">
             Login
           </Typography>
         </Grid>

@@ -8,6 +8,7 @@ import {
 import { useHistory } from "react-router-dom";
 
 import isAuth, { userType } from "../lib/isAuth";
+import SchoolIcon from "@material-ui/icons/School";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,8 +36,8 @@ const Navbar = (props) => {
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <Typography variant="h6" className={classes.title} onClick={() => handleClick("/")}>
-          JobFinder.
+        <Typography variant="h4" className={classes.title} onClick={() => handleClick("/")}>
+          JobFinder<SchoolIcon fontSize="large" />
         </Typography>
         {isAuth() ? (
           userType() === "recruiter" ? (
