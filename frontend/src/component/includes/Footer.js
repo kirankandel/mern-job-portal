@@ -1,5 +1,7 @@
 import { Grid, makeStyles, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import SchoolIcon from "@material-ui/icons/School";
+
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -43,35 +45,11 @@ const Footer = () => {
       <Grid className={classes.container} container spacing={4}>
         <Grid item xs={12} md={3}>
           <Typography className={classes.poppinsFont} variant="h4" align={"left"}>
-            JobFinder.
+          JobFinder<SchoolIcon fontSize="large" />
           </Typography>
           <Typography variant="subtitle1" className={classes.interFont} align="left">
             JobFinder is a job search platform located in Nepal that helps job seekers find suitable employment opportunities across different industries and job categories.
           </Typography>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <Typography variant="h5" className= {classes.poppinsFont} align={"center"}>
-            Company
-          </Typography>
-          <div className={[classes.links, classes.interFont].join(' ')}>
-            <Link className={classes.link} to="/">About Us</Link>
-            <Link className={classes.link} to="/">Contact Us</Link>
-            <Link className={classes.link} to="/">Cookie Policy</Link>
-            <Link className={classes.link} to="/">Privacy Policy</Link>
-            <Link className={classes.link} to="/">Terms & Conditions</Link>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <Typography variant="h5" className= {classes.poppinsFont} align={"center"}>
-            Browse Jobs
-          </Typography>
-          <div className={[classes.links, classes.interFont].join(' ')}>
-          <Link className={classes.link} to="/">Delivery Jobs</Link>
-          <Link className={classes.link} to="/">Engineering Jobs</Link>
-          <Link className={classes.link} to="/">Designing Jobs</Link>
-          <Link className={classes.link} to="/">Management Jobs</Link>
-          <Link className={classes.link} to="/">Human Resources Jobs</Link>
-          </div>
         </Grid>
         <Grid item xs={12} md={3}>
           <Typography variant="h5" className= {classes.poppinsFont} align={"center"}>
@@ -80,9 +58,6 @@ const Footer = () => {
           <div className={[classes.links, classes.interFont].join(' ')}>
           <Link className={classes.link} to="/">Facebook</Link>
           <Link className={classes.link} to="/">Twitter</Link>
-          <Link className={classes.link} to="/">Linkedin</Link>
-          <Link className={classes.link} to="/">Instagram</Link>
-          <Link className={classes.link}  to="/">Youtube</Link>
           </div>
         </Grid>
       </Grid>

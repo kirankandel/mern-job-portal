@@ -418,6 +418,8 @@ const Login = (props) => {
             onBlur={(event) => {
               if (event.target.value === "") {
                 handleInputError("password", true, "Password is required");
+              } else if (event.target.value.length < 8) {
+                handleInputError("password", true, "Password is too weak");
               } else {
                 handleInputError("password", false, "");
               }
