@@ -28,6 +28,7 @@ import jobRoles from "./roles.json";
 const useStyles = makeStyles((theme) => ({
   body: {
     padding: "80px 80px",
+    background: "linear-gradient(45deg, #e2f1ff, #fff7f5)"
   },
   inputBox: {
     width: "300px",
@@ -44,64 +45,53 @@ const MultifieldInput = (props) => {
   return (
     <>
       {education.map((obj, key) => (
-        <Grid
-          item
-          container
-          className={classes.inputBox}
-          key={key}
-          style={{ paddingLeft: 0, paddingRight: 0 }}
-        >
-          <Grid item xs={6}>
-            <TextField
-              label={`Institution Name #${key + 1}`}
-              value={education[key].institutionName}
-              onChange={(event) => {
-                const newEdu = [...education];
-                newEdu[key].institutionName = event.target.value;
-                setEducation(newEdu);
-              }}
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={6}>
+          <><Grid item>
+          <TextField
+            label={`Institution Name #${key + 1}`}
+            value={education[key].institutionName}
+            className={classes.inputBox}
+            onChange={(event) => {
+              const newEdu = [...education];
+              newEdu[key].institutionName = event.target.value;
+              setEducation(newEdu);
+            } }
+            variant="outlined" />
+        </Grid><Grid item>
             <TextField
               label={`Course Name #${key + 1}`}
               value={education[key].courseName}
+              className={classes.inputBox}
               onChange={(event) => {
                 const newEdu = [...education];
                 newEdu[key].courseName = event.target.value;
                 setEducation(newEdu);
-              }}
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={6}>
+              } }
+              variant="outlined" />
+          </Grid><Grid item>
             <TextField
               label="Start Year"
               value={obj.startYear}
               variant="outlined"
+              className={classes.inputBox}
               type="number"
               onChange={(event) => {
                 const newEdu = [...education];
                 newEdu[key].startYear = event.target.value;
                 setEducation(newEdu);
-              }}
-            />
-          </Grid>
-          <Grid item xs={6}>
+              } } />
+          </Grid><Grid item>
             <TextField
               label="End Year"
               value={obj.endYear}
+              className={classes.inputBox}
               variant="outlined"
               type="number"
               onChange={(event) => {
                 const newEdu = [...education];
                 newEdu[key].endYear = event.target.value;
                 setEducation(newEdu);
-              }}
-            />
-          </Grid>
-        </Grid>
+              } } />
+          </Grid></>
       ))}
       <Grid item>
         <Button
@@ -576,26 +566,6 @@ const Login = (props) => {
                 onChange={(chips) =>
                   setSignupDetails({ ...signupDetails, skills: chips })
                 }
-              />
-            </Grid>
-            <Grid item>
-              <FileUploadInput
-                className={classes.inputBox}
-                label="Resume (.pdf)"
-                icon={<DescriptionIcon />}
-                uploadTo={apiList.uploadResume}
-                handleInput={handleInput}
-                identifier={"resume"}
-              />
-            </Grid>
-            <Grid item>
-              <FileUploadInput
-                className={classes.inputBox}
-                label="Profile Photo (.jpg/.png)"
-                icon={<FaceIcon />}
-                uploadTo={apiList.uploadProfileImage}
-                handleInput={handleInput}
-                identifier={"profile"}
               />
             </Grid>
           </>

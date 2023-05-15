@@ -24,7 +24,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    fontFamily: "Poppins",
     boxSizing: "border-box",
+    background: "linear-gradient(45deg, #e2f1ff, #fff7f5)",
     width: "100%",
   },
   gripSpace:{
@@ -44,7 +46,7 @@ function App() {
   return (
     <BrowserRouter>
       <SetPopupContext.Provider value={setPopup}>
-        <Grid container direction="column" >
+        <Grid container direction="column" className={classes.body} >
           <Grid item xs>
             <Navbar />
           </Grid>

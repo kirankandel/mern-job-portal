@@ -100,7 +100,7 @@ const CreateJobs = (props) => {
         style={{ padding: "30px", minHeight: "93vh", width: "" }}
       >
         <Grid item>
-          <Typography variant="h2">Add Job</Typography>
+          <Typography variant="h3">Add Job</Typography>
         </Grid>
         <Grid item container xs direction="column" justify="center">
           <Grid item>

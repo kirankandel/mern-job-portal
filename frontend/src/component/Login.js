@@ -18,8 +18,12 @@ import apiList from "../lib/apiList";
 import isAuth from "../lib/isAuth";
 
 const useStyles = makeStyles((theme) => ({
+  root:{
+    background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
+  },
   body: {
     padding: "80px 80px",
+    background: "linear-gradient(45deg, #e2f1ff, #fff7f5)",
     marginTop: "50px",
   },
   inputBox: {
@@ -108,7 +112,7 @@ const Login = (props) => {
   return loggedin ? (
     <Redirect to="/" />
   ) : (
-      <Grid container direction="column" spacing={4} alignItems="center">
+      <Grid container direction="column" spacing={4} alignItems="center" style={{"height":"100vh"}}>
         <Grid item>
           <Typography variant="h4" component="h2">
             Login
