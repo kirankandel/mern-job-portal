@@ -54,8 +54,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   avatar: {
-    width: theme.spacing(17),
-    height: theme.spacing(17),
+    width: theme.spacing(12),
+    height: theme.spacing(12),
+    marginRight: "20px"
   },
 }));
 
