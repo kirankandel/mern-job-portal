@@ -34,11 +34,12 @@ const useStyles = makeStyles((theme) => ({
   },
   statusBlock: {
     width: "100%",
-    height: "100%",
+    minHeight: "60px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     textTransform: "uppercase",
+    margin: "10px"
   },
   jobTileOuter: {
     padding: "30px",
@@ -53,8 +54,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   avatar: {
-    width: theme.spacing(17),
-    height: theme.spacing(17),
+    width: theme.spacing(12),
+    height: theme.spacing(12),
+    marginRight: "30px"
   },
 }));
 
@@ -578,7 +580,7 @@ const ApplicationTile = (props) => {
               Download Resume
             </Button>
           </Grid>
-          <Grid item container xs>
+          <Grid item>
             {/* {buttonSet[application.status]} */}
             <Button
               variant="contained"
@@ -591,7 +593,7 @@ const ApplicationTile = (props) => {
                 setOpenEndJob(true);
               }}
             >
-              End Job
+              Terminate Job
             </Button>
           </Grid>
           <Grid item>

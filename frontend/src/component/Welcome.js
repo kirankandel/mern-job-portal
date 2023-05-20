@@ -82,6 +82,9 @@ const jobsByEducation = [
 ];
 
 const useStyles = makeStyles((theme) => ({
+  body: {
+    background: "linear-gradient(45deg, #e2f1ff, #fff7f5)",
+  },
   respImg: {
     maxWidth: "100%",
   },

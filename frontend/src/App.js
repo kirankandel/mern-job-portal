@@ -17,6 +17,7 @@ import AcceptedApplicants from "./component/recruiter/AcceptedApplicants";
 import RecruiterProfile from "./component/recruiter/Profile";
 import MessagePopup from "./lib/MessagePopup";
 import { userType } from "./lib/isAuth";
+import background from "./assets/background.jpg";
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -26,7 +27,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     fontFamily: "Poppins",
     boxSizing: "border-box",
-    background: "linear-gradient(45deg, #e2f1ff, #fff7f5)",
+    background: `
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(${background}) no-repeat center center fixed
+    `,
+    backgroundSize: "cover",
+    backgroundColor: "rgba(200,0,0,0.3)",
     width: "100%",
   },
   gripSpace:{

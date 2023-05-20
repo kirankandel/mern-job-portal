@@ -29,7 +29,10 @@ const useStyles = makeStyles((theme) => ({
   },
   statusBlock: {
     width: "100%",
-    height: "100%",
+    minHeight: "60px",
+      // make status block rounded
+    borderRadius: "10px",
+    padding: "15px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -43,6 +46,11 @@ const useStyles = makeStyles((theme) => ({
   },
   popupDialog: {
     height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  centerButtonInFlex: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -170,7 +178,7 @@ const ApplicationTile = (props) => {
           </Grid>
           {application.status === "accepted" ||
           application.status === "finished" ? (
-            <Grid item>
+            <Grid item className={classes.centerButtonInFlex}>
               <Button
                 variant="contained"
                 color="primary"
