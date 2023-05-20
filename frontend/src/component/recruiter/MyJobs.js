@@ -29,6 +29,9 @@ import { SetPopupContext } from "../../App";
 
 import apiList from "../../lib/apiList";
 
+// change flex basis of the buttons
+
+
 const useStyles = makeStyles((theme) => ({
   body: {
     height: "inherit",
@@ -51,11 +54,11 @@ const useStyles = makeStyles((theme) => ({
   },
   statusBlock: {
     width: "100%",
-    height: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     textTransform: "uppercase",
+    margin: "10px"
   },
 }));
 

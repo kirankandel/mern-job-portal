@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
   },
   statusBlock: {
     width: "100%",
-    height: "100%",
+    minHeight: "60px",
+    margin: "10px 0",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
